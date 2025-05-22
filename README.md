@@ -3,16 +3,41 @@
 To write a C Program to find area of rectangle using pointer.
 
 ## ALGORITHM
-1.	Start the program.
-2.	Read two numbers.
-3.	Calculate the area of rectangle using the formula area=(x)(*y)
-4.	Display the result.
-5.	Stop the program.
+```
+1.Start the program and declare variables for length, width, and area.
 
+2.Read the values of length and width from the user.
+
+3.Call the function findArea() and pass the addresses of length, width, and area.
+
+4.In the function, calculate the area using the dereferenced values and store the result in *area.
+
+5.Print the calculated area and end the program.
+```
 ## PROGRAM
+```
+#include <stdio.h>
 
+void findArea(float *length, float *width, float *area) {
+    *area = (*length) * (*width);
+}
+
+int main() {
+    float length , width ;
+    float area;
+    scanf("%f",&length);
+    scanf("%f",&width);
+    // Calling function to find area using pointers
+    findArea(&length, &width, &area);
+
+    printf("Area of rectangle = %f sq. units\n", area);
+
+    return 0;
+}
+```
 ## OUTPUT
 		       	
+![image](https://github.com/user-attachments/assets/f11bb0e0-4099-428c-8247-971b911470d6)
 
 
 ## RESULT
@@ -26,17 +51,44 @@ Thus the program to find area of rectangle using pointer has been executed succe
 To write a C Program to print 'WELCOME' using malloc() and free().
 
 ## ALGORITHM
-1.	Start the program.
-2.	Read a string variable.
-3.	Allocate memory using malloc().
-4.	Display the string.
-5.	Remove the allocated memory using free().
-6.	Stop the program.
-
+```
+1.Start the program and allocate memory for 6 characters using malloc.
+2.Check if memory allocation was successful; if not, print an error and exit.
+3.Store the characters 'W', 'E', 'L', 'C', 'O', 'M', 'E' in the allocated memory.
+4.Loop through the array and print each character.
+5.Free the allocated memory and end the program.
+```
 ## PROGRAM
-
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int n=6;
+    char *ptr=(char *)malloc(n*sizeof(char));
+    if(ptr==NULL)
+    {
+        printf("failed");
+        return 1;
+    }
+    ptr[0]='W';
+    ptr[1]='E';
+    ptr[2]='L';
+    ptr[3]='C';
+    ptr[4]='O';
+    ptr[5]='M';
+    ptr[6]='E';
+    int i;
+    for(i=0;i<=n;i++)
+    {
+        printf("%c",ptr[i]);
+    }
+    free(ptr);
+}
+```
 ## OUTPUT
 
+![image](https://github.com/user-attachments/assets/5fe48358-eef9-4e02-b6e6-f87103d8532f)
 
 
 ## RESULT
