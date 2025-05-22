@@ -105,16 +105,38 @@ Thus the program to print 'WELCOME' using malloc() and free() has been executed 
 To write a C Program to store the student information and display it using structure.
 
 ## ALGORITHM
-
+```
 1.	Start the program.
 2.	Create a student structure with name, roll number and marks as members.
 3.	Using structure variable read the structure members and print them.
 4.	Stop the program.
-
+```
 ## PROGRAM
-
+```
+#include <stdio.h>
+struct student
+{
+    char clg[20];
+    int roll;
+    float mark;
+}s;
+int main()
+{
+    scanf("%s",s.clg);
+    scanf("%d",&s.roll);
+    scanf("%f",&s.mark);
+    printf("Displaying Information:\n");
+    printf("Name: %s\n",s.clg);
+    printf("Roll number: %d\n",s.roll);
+    printf("Marks: %.1f",s.mark);
+    return 0;;
+}
+```
 
 ## OUTPUT
+
+![image](https://github.com/user-attachments/assets/13b3adfd-ba35-4e42-a3b8-aa0a9d70a5eb)
+
 
 
 ## RESULT
@@ -131,19 +153,61 @@ Thus the program to store the student information and display it using structure
 To write a C Program to read and store the data of 3 employees and calculate their Gross Salary using the concept of structure.
 
 ## ALGORITHM
-
+```
 1.	Start the program.
 2.	Create an employee structure with name, id and salary details as members.
 3.	Using structure variable read the structure members.
 4.	Calculate the gross salary and print the details.
 5.	Stop the program.
-
+```
 ## PROGRAM
+```
+#include <stdio.h>
 
+struct Employee {
+    int empno;
+    char dept[20];
+    float basic_pay;
+    float da;
+    float hra;
+    float gross_salary;
+};
+
+int main() {
+    struct Employee emp[3];
+    int i;
+
+   
+    for (i = 0; i < 3; i++) {
+        scanf("%d", &emp[i].empno);
+        scanf("%s", emp[i].dept);
+        scanf("%f", &emp[i].basic_pay);
+
+     
+        emp[i].da = 0.10f * emp[i].basic_pay;
+        emp[i].hra = 0.30f * emp[i].basic_pay;
+        emp[i].gross_salary = emp[i].basic_pay + emp[i].da + emp[i].hra;
+    }
+
+    printf("Details of the Employee:\n");
+    for (i = 0; i < 3; i++) {
+        printf("%d %s %.0f %.0f %.0f %.2f\n",
+               emp[i].empno,
+               emp[i].dept,
+               emp[i].basic_pay,
+               emp[i].da,
+               emp[i].hra,
+               emp[i].gross_salary);
+    }
+
+    return 0;
+}
+```
 
  ## OUTPUT
 
- 
+ ![image](https://github.com/user-attachments/assets/253e69c0-24ef-404e-9159-f632227cf3d9)
+
 
 ## RESULT
 
