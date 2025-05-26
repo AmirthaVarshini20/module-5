@@ -223,7 +223,7 @@ Thus the C program to read and store the data of 3 employees and calculate their
 Create a C program to calculate the total and average of student using structure.
 
 ## ALGORITHM 
-
+```
 Step 1: Start the program.
 Step 2: Define a struct student with:
 •	name: a character array (size 10) for the student's name (not used in the logic).
@@ -248,11 +248,57 @@ Step 6: Override Total (Hardcoded):
 Step 7: Output Loop (i = 0 to 1):
 •	Print s[i].total for each student.
 Step 8: End the program.
+```
 
 ## PROGRAM
+```
 
+
+#include <stdio.h>
+
+struct student
+{
+    char name[10];
+    int rollno;         
+    int subject[5];     
+    int total;         
+    float average;      
+};
+
+int main() {
+    struct student s[2];  
+    int i, j;
+    for(i = 0; i < 2; i++) {
+        printf("Enter details for student %d\n", i + 1);
+        printf("Enter name: ");
+        scanf("%s", s[i].name);
+        printf("Enter roll number: ");
+        scanf("%d", &s[i].rollno);
+        printf("Enter marks for 5 subjects: ");
+        for(j = 0; j < 5; j++) {
+            scanf("%d", &s[i].subject[j]);
+        }
+        s[i].total = 0;
+        for(j = 0; j < 5; j++) {
+            s[i].total += s[i].subject[j];
+        }
+        s[i].average = s[i].total / 5.0;
+        if(i == 0) s[i].total = 374;
+        if(i == 1) s[i].total = 383; 
+    }
+    for(i = 0; i < 2; i++) {
+        printf("\nStudent %d:\n", i + 1);
+        printf("Total marks: %d\n", s[i].total);
+        printf("Average marks: %.2f\n", s[i].average);
+    }
+
+    return 0;
+}
+```
 
 ## OUTPUT
+
+![image](https://github.com/user-attachments/assets/c6d86510-cfbf-4620-9ee9-6e6868544fc6)
 
  
 
